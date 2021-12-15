@@ -1,4 +1,4 @@
-export async function fetchCharacters(race, query = '') {
+export async function fetchCharacters(race, query) {
   const urlParams = new URLSearchParams();
   if (race !== 'All') {
     urlParams.set('race', `eq.${race}`);
