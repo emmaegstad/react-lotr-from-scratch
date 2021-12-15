@@ -15,6 +15,9 @@ export default function Characters() {
     fetchData();
   }, [race, query]);
 
+  //Build is failing on Netlify unless I call setQuery, but I don't have the functionality built out yet. Have to have the query state to call fetchCharacters, so I'm just setting it to an empty string here.
+  setQuery('');
+
   return (
     <div className="Characters">
       <select value={race} onChange={(e) => setRace(e.target.value)}>
