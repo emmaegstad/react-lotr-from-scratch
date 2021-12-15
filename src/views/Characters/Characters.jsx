@@ -5,17 +5,28 @@ import CharacterList from '../../components/CharacterList';
 export default function Characters() {
   const [characters, setCharacters] = useState([]);
   const [race, setRace] = useState('All');
+  const [query, setQuery] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchCharacters(race);
+      const data = await fetchCharacters(race, query);
       setCharacters(data);
+      setLoading(false);
     };
-    fetchData();
-  }, [race]);
+    if (loading) {
+      fetchData();
+    }
+  }, [loading, race, query]);
 
   return (
     <div className="Characters">
+      <input
+        type="text"
+        placeholder="Search by name"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
       <select value={race} onChange={(e) => setRace(e.target.value)}>
         <option value="All">All</option>
         <option value="Dwarf">Dwarf</option>
@@ -25,6 +36,7 @@ export default function Characters() {
         <option value="Maiar">Maiar</option>
         <option value="Orc">Orc</option>
       </select>
+      <button onClick={() => setLoading(true)}>Submit</button>
       {characters.map((character) => {
         return <CharacterList key={character.id} {...character} />;
       })}
