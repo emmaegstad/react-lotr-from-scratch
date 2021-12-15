@@ -8,6 +8,7 @@ export default function Main() {
         src={process.env.PUBLIC_URL + '/assets/LOTR_logo.png'}
         alt="Lord of the Ring Logo"
       />
+      <h1>LOTR in React</h1>
     </div>
   );
 }
