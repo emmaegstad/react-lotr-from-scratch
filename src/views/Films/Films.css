@@ -1,4 +1,10 @@
 .Films {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2vh;
   background-color: rgba(255, 255, 255, 0.192);
   border-radius: 10px;
   padding: 2vh;
@@ -6,4 +12,10 @@
 
 .Film {
   color: white;
+  text-align: center;
+  width: 20vw;
+}
+
+.Film img {
+  height: 15vh;
 }

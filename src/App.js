@@ -12,8 +12,8 @@ function App() {
         <header className="nav">
           <NavLink to="/">Main</NavLink>
           <NavLink to="/Books">Books</NavLink>
-          <NavLink to="/Characters">Characters</NavLink>
           <NavLink to="/Films">Films</NavLink>
+          <NavLink to="/Characters">Characters</NavLink>
         </header>
 
         <Switch>
@@ -23,11 +23,11 @@ function App() {
           <Route exact path="/books">
             <Books />
           </Route>
-          <Route exact path="/characters">
-            <Characters />
-          </Route>
           <Route exact path="/films">
             <Films />
+          </Route>
+          <Route exact path="/characters">
+            <Characters />
           </Route>
         </Switch>
       </div>
