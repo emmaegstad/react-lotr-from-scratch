@@ -1,3 +1,4 @@
+import './Characters.css';
 import { useState, useEffect } from 'react';
 import { fetchCharacters } from '../../services/characters';
 import CharacterList from '../../components/CharacterList';
@@ -28,26 +29,31 @@ export default function Characters() {
   }, [loading, query, race]);
 
   return (
-    <div className="Characters">
-      <input
-        type="text"
-        placeholder="Search by name"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <select value={race} onChange={(e) => setRace(e.target.value)}>
-        <option value="All">All</option>
-        <option value="Dwarf">Dwarf</option>
-        <option value="Elf">Elf</option>
-        <option value="Hobbit">Hobbit</option>
-        <option value="Human">Human</option>
-        <option value="Maiar">Maiar</option>
-        <option value="Orc">Orc</option>
-      </select>
-      <button onClick={() => setLoading(true)}>Submit</button>
-      {characters.map((character) => {
-        return <CharacterList key={character.id} {...character} />;
-      })}
-    </div>
+    <>
+      <h1>Characters in the Series</h1>
+      <div className="Characters">
+        <div className="search">
+          <input
+            type="text"
+            placeholder="Search by name"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <select value={race} onChange={(e) => setRace(e.target.value)}>
+            <option value="All">All</option>
+            <option value="Dwarf">Dwarf</option>
+            <option value="Elf">Elf</option>
+            <option value="Hobbit">Hobbit</option>
+            <option value="Human">Human</option>
+            <option value="Maiar">Maiar</option>
+            <option value="Orc">Orc</option>
+          </select>
+          <button onClick={() => setLoading(true)}>Submit</button>
+        </div>
+        {characters.map((character) => {
+          return <CharacterList key={character.id} {...character} />;
+        })}
+      </div>
+    </>
   );
 }
