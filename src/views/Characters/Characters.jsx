@@ -5,18 +5,14 @@ import CharacterList from '../../components/CharacterList';
 export default function Characters() {
   const [characters, setCharacters] = useState([]);
   const [race, setRace] = useState('All');
-  const [query, setQuery] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchCharacters(race, query);
+      const data = await fetchCharacters(race);
       setCharacters(data);
     };
     fetchData();
-  }, [race, query]);
-
-  //Build is failing on Netlify unless I call setQuery, but I don't have the functionality built out yet. Have to have the query state to call fetchCharacters, so I'm just setting it to an empty string here.
-  setQuery('');
+  }, [race]);
 
   return (
     <div className="Characters">
