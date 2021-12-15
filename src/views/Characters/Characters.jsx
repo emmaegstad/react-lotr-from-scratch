@@ -6,6 +6,7 @@ export default function Characters() {
   const [characters, setCharacters] = useState([]);
   const [race, setRace] = useState('All');
   const [query, setQuery] = useState('');
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
