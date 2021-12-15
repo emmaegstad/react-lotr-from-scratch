@@ -1,3 +1,4 @@
+import './Films.css';
 import { useState, useEffect } from 'react';
 import { fetchFilms } from '../../services/films';
 import FilmList from '../../components/FilmList';
@@ -14,10 +15,13 @@ export default function Films() {
   }, []);
 
   return (
-    <div className="Films">
-      {films.map((film) => {
-        return <FilmList key={film.id} {...film} />;
-      })}
-    </div>
+    <>
+      <h1>Films in the Series</h1>
+      <div className="Films">
+        {films.map((film) => {
+          return <FilmList key={film.id} {...film} />;
+        })}
+      </div>
+    </>
   );
 }

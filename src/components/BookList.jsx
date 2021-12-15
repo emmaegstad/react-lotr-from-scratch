@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function BookList({ title }) {
   return (
-    <div>
-      <h1>{title}</h1>
+    <div className="BookList">
+      <h2>{title}</h2>
     </div>
   );
 }

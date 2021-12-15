@@ -1,0 +1,9 @@
+.Films {
+  background-color: rgba(255, 255, 255, 0.192);
+  border-radius: 10px;
+  padding: 2vh;
+}
+
+.Film {
+  color: white;
+}
